@@ -1,5 +1,7 @@
 # QuPath GeoJSON to Leica LMD XML Converter
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://qupath-lmd-converter-ggqnl6ufzzwnevv9pexv9e.streamlit.app/)  
+
 [:cn: 中文版](#qupath-geojson-到-leica-lmd-xml-转换工具)  
 
 Convert QuPath GeoJSON annotations into cutting data for Leica LMD6/7 laser microdissection, with support for 4-well, 96-well and 384-well collection devices.
@@ -91,6 +93,9 @@ Apache-2.0. See `LICENSE`. py-lmd is licensed under Apache-2.0; see `NOTICE.txt`
 ---
 
 # QuPath GeoJSON 到 Leica LMD XML 转换工具
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://qupath-lmd-converter-ggqnl6ufzzwnevv9pexv9e.streamlit.app/)  
+
 
 [English](#qupath-geojson-to-leica-lmd-xml-converter)  
 
