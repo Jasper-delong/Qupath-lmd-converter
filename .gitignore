@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Runtime artifacts produced by the pipeline
+pipeline/
+output/
+
+# Streamlit
+.streamlit/
+.streamlit/secrets.toml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Packaging
+build/
+dist/
+*.spec
