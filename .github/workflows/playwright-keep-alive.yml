@@ -1,0 +1,43 @@
+name: Keep Streamlit Alive (Browser Mode)
+
+on:
+  schedule:
+    # 每 10 小时执行一次，模拟真实用户访问
+    - cron: "0 */10 * * *"
+  workflow_dispatch: # 保留手动运行按钮
+
+jobs:
+  visit-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Playwright
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Visit Streamlit App
+        run: |
+          python -c "
+          from playwright.sync_api import sync_playwright
+          import time
+
+          # 请在下方单引号内填入你真实的 Streamlit 网址
+          url = 'https://qupath-lmd-converter-ggqnl6ufzzwnevv9pexv9e.streamlit.app/' 
+
+          with sync_playwright() as p:
+              browser = p.chromium.launch(headless=True)
+              page = browser.new_page()
+              print(f'正在模拟真实环境访问: {url}')
+              page.goto(url, wait_until='networkidle')
+              print('网页完全加载完毕，触发 WebSocket 连接...')
+              print('停留 10 秒钟...')
+              time.sleep(10)
+              print('坐标转换工具保活访问结束，关闭浏览器。')
+              browser.close()
+          "
